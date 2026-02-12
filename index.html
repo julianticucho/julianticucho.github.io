@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Un juego de Tetris moderno con estética neón y jugabilidad fluida.">
+    <title>tetris</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-background"></div>
+    
+    <main class="game-wrapper">
+        <header class="game-header">
+            <h1><span class="accent">TETRIS</span></h1>
+        </header>
+
+        <div class="main-layout">
+            <!-- Sidebar Left: Hold -->
+            <aside class="sidebar side-left">
+                <div class="panel-container glass" id="hold-panel">
+                    <h2 class="panel-title">HOLD</h2>
+                    <div class="canvas-wrapper">
+                        <canvas id="canvas-hold"></canvas>
+                    </div>
+                </div>
+                
+                <div class="controls-guide glass">
+                    <h3>CONTROLS</h3>
+                    <ul>
+                        <li>Move <span>← →</span></li>
+                        <li>Rotate <span>↑</span></li>
+                        <li>Down <span>↓</span></li>
+                        <li>Drop <span>SPACE</span></li>
+                        <li>Hold <span>C</span></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Center: Main Board -->
+            <section class="board-section">
+                <div class="board-container glass">
+                    <canvas id="canvas-tetris"></canvas>
+                    <div id="game-over-screen" class="game-over-overlay hidden">
+                        <div class="game-over-content">
+                            <h2 class="arcade-text-red">GAME OVER</h2>
+                            <div class="final-stats">
+                                <p>LINES: <span id="final-lines">0</span></p>
+                            </div>
+                            <button id="btn-restart" class="arcade-button">RETRY</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar Right: Next -->
+            <aside class="sidebar side-right">
+                <div class="panel-container glass" id="next-panel">
+                    <h2 class="panel-title">NEXT</h2>
+                    <div class="canvas-wrapper">
+                        <canvas id="canvas-next"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stats-panel glass">
+                    <div class="stat-item">
+                        <span class="label">LINES</span>
+                        <span class="value">0</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
