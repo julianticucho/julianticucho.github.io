@@ -76,7 +76,7 @@ export class Game {
         this.lines += this.board.clearFullRows();
         
         // Actualizamos contador de líneas en el UI si lo tienes
-        const linesValue = document.querySelector(".stats-panel .stat-item:nth-child(2) .value");
+        const linesValue = document.querySelector(".stats-panel .stat-item:nth-child(1) .value");
         if (linesValue) linesValue.innerText = this.lines;
 
         if (this.board.gameOver()) {
