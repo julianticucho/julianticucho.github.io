@@ -24,6 +24,7 @@ export class Game {
 
         this._keyboard();
         this._initEvents();
+        this._initMobileControls();
     }
     _initEvents() {
         this.btnRestart.addEventListener("click", () => {
@@ -227,5 +228,44 @@ export class Game {
         this.gameOverScreen.classList.add("hidden");
         const linesValue = document.querySelector(".stats-panel .stat-item:nth-child(2) .value");
         if (linesValue) linesValue.innerText = "0";
+    }
+
+    _initMobileControls() {
+        const btnLeft = document.getElementById("btn-left");
+        const btnRight = document.getElementById("btn-right");
+        const btnDown = document.getElementById("btn-down");
+        const btnRotate = document.getElementById("btn-rotate");
+        const btnHold = document.getElementById("btn-hold");
+        const btnDrop = document.getElementById("btn-drop");
+
+        if (btnLeft) {
+            btnLeft.addEventListener("pointerdown", (e) => { e.preventDefault(); this._moveTetrominoLeft(); });
+        }
+        if (btnRight) {
+            btnRight.addEventListener("pointerdown", (e) => { e.preventDefault(); this._moveTetrominoRight(); });
+        }
+        if (btnDown) {
+            btnDown.addEventListener("pointerdown", (e) => { 
+                e.preventDefault(); 
+                this._moveTetrominoDown(); 
+                this.keys.down = true; 
+            });
+            btnDown.addEventListener("pointerup", (e) => { 
+                e.preventDefault(); 
+                this.keys.down = false; 
+            });
+            btnDown.addEventListener("pointerleave", (e) => { 
+                this.keys.down = false; 
+            });
+        }
+        if (btnRotate) {
+            btnRotate.addEventListener("pointerdown", (e) => { e.preventDefault(); this._rotationTetrominoCW(); });
+        }
+        if (btnHold) {
+            btnHold.addEventListener("pointerdown", (e) => { e.preventDefault(); this._holdTetromino(); });
+        }
+        if (btnDrop) {
+            btnDrop.addEventListener("pointerdown", (e) => { e.preventDefault(); this._dropBlock(); });
+        }
     }
 }
