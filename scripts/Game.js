@@ -173,7 +173,7 @@ export class Game {
                 tetrominoPositions[i].col,
                 tetrominoPositions[i].row + dropDistance
             );
-            this.board.drawSquare(position.x, position.y, this.board.cellSize, "#000", "white", 20);
+            this.board.drawSquare(position.x, position.y, this.board.cellSize, "#000", "white", 10);
         }   
     }
     _tetrominoDropDistance() {
