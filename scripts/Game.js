@@ -47,7 +47,7 @@ export class Game {
             this.lastTimeDraw = currentTime;
         }
         let deltaTimeAutoMove = currentTime - this.lastTimeAutoMove;
-        if (deltaTimeAutoMove >= 1000) {
+        if (deltaTimeAutoMove >= 200) {
             this._autoMoveTetrominoDown();
             this.lastTimeAutoMove = currentTime;
         }
